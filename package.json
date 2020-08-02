@@ -1,0 +1,17 @@
+{
+    "name": "dyawa",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --watchAll"
+    },
+    "author": "Nikesh Kalu",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^26.1.0"
+    },
+    "dependencies": {
+        "hex-to-binary": "^1.0.1"
+    }
+}
