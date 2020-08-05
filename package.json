@@ -8,6 +8,9 @@
         "start": "nodemon index.js",
         "dev-peer": "cross-env GENERATE_PEER_PORT='true' nodemon index.js"
     },
+    "jest": {
+        "testEnvironment": "node"
+    },
     "author": "Nikesh Kalu",
     "license": "ISC",
     "devDependencies": {
@@ -16,11 +19,13 @@
     "dependencies": {
         "body-parser": "^1.19.0",
         "cross-env": "^7.0.2",
+        "elliptic": "^6.5.3",
         "express": "^4.17.1",
         "hex-to-binary": "^1.0.1",
         "nodemon": "^2.0.4",
         "pubnub": "^4.28.4",
         "redis": "^3.0.2",
-        "request": "^2.88.2"
+        "request": "^2.88.2",
+        "uuid": "^8.3.0"
     }
 }
