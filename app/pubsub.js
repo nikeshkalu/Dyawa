@@ -7,12 +7,14 @@ const credentials = {
 
 const CHANNELS = {
     TEST : 'TEST',
-    BLOCkCHAIN : 'BLOCKCHAIN'
+    BLOCkCHAIN : 'BLOCKCHAIN',
+    TRANSACTION: 'TRANSACTION'
 }
 
 class PubSub{
-    constructor({blockchain}){
+    constructor({blockchain,transactionPool}){
         this.blockchain = blockchain
+        this.transactionPool = transactionPool
         this.pubNub = new PubNub(credentials)
         this.pubNub.subscribe({ channels: [Object.values(CHANNELS)]})
 
@@ -26,9 +28,20 @@ class PubSub{
                 console.log(`Message Received---------- Channel:${channel}  ----------  Message:${message} `)
 
                 const parseMessage = JSON.parse(message)
-                if(channel === CHANNELS.BLOCkCHAIN){
-                    this.blockchain.replaceChain(parseMessage)
+
+                switch(channel){
+                    case CHANNELS.BLOCkCHAIN:
+                        this.blockchain.replaceChain(parseMessage)
+                        break
+
+                    case CHANNELS.TRANSACTION:    
+                        this.transactionPool.setTransaction(parseMessage)
+                        break
+
+                    default:
+                        return
                 }
+               
             }
         }
     }
@@ -43,6 +56,19 @@ class PubSub{
             message: JSON.stringify(this.blockchain.chain)
 
         })
+    }
+
+    brodcastTransaction(transaction){
+        this.publish({
+            channel : CHANNELS.TRANSACTION,
+            message: JSON.stringify(transaction)
+        }) 
+
+        setTimeout(()=>{
+            console.log('test')  
+            this.transactionPool.setTransaction(transaction)
+        },3000)  
+
     }
 }
 
