@@ -31,4 +31,46 @@ describe('TransactionPool',()=>{
             expect(transactionPool.existingTransaction({ inputAddress : senderWallet.publicKey })).toBe(transaction)
         })
     })
+
+    describe('validTransactions()',()=>{
+        let validTransactions,errorMock
+
+        beforeEach(()=>{
+            validTransactions = []
+            errorMock = jest.fn()
+            global.console.error = errorMock
+
+            for(let i=0;i<10;i++){
+                transaction = new Transaction({
+                    senderWallet,
+                    recepient:'test-recepient',
+                    amount:50
+                })
+
+                if(i%3===0){
+                    transaction.input.amount = 999999
+                }
+                else if(i%3===1){
+                    transaction.input.signature = new Wallet().sign('foo')
+                }
+                else{
+                    validTransactions.push(transaction)
+                }
+
+                transactionPool.setTransaction(transaction)
+            }
+
+            // console.log(validTransactions)
+            // console.log(transactionPool.validTransaction())
+        })
+
+        it('returns valid transactions',()=>{
+            expect(transactionPool.validTransaction()).toEqual(validTransactions)
+        })
+
+        it('Logs for an invalid transaction',()=>{
+            transactionPool.validTransaction()
+            expect(errorMock).toHaveBeenCalled()
+        })
+    })
 })
