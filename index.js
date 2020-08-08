@@ -7,6 +7,7 @@ const TransactionPool = require('./wallet/transaction-pool')
 const Wallet = require('./wallet/index')
 const { json } = require('body-parser')
 const Transaction = require('./wallet/transaction')
+const TransactionMiner = require('./app/transaction-miner')
 
 
 const app = express()
@@ -14,6 +15,12 @@ const blockchain = new BlockChain()
 const transactionPool = new TransactionPool()
 const wallet = new Wallet()
 const pubsub = new PubSub({blockchain,transactionPool})
+const transactionMiner = new TransactionMiner({
+    blockchain : blockchain,
+    transactionPool:transactionPool,
+    wallet : wallet,
+    pubsub:pubsub
+})
 
 app.use(bodyParser.json())
 
@@ -69,6 +76,11 @@ app.post('/api/transact',(req,res)=>{
 
 app.get('/api/transaction-pool-map',(req,res)=>{
     res.json(transactionPool.transactionMap)
+})
+
+app.get('/api/mine-transactions',(req,res)=>{
+    transactionMiner.mineTransactions()
+    res.redirect('/api/blocks')
 })
 
 const syncWithRootState = () =>{
