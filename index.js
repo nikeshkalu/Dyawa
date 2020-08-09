@@ -49,13 +49,14 @@ app.post('/api/mine',(req,res)=>{
 app.post('/api/transact',(req,res)=>{
     const {amount,recepient} = req.body
     transaction = transactionPool.existingTransaction({ inputAddress : wallet.publicKey })
+
     try{
         if(transaction){
             console.log('test')
             console.log(transaction)
             transaction.update({senderWallet : wallet,recepient,amount})
         }else{
-            transaction = wallet.createTransaction({recepient,amount})
+            transaction = wallet.createTransaction({recepient,amount,chain:blockchain.chain})
         }
     }
     catch(error){
@@ -64,6 +65,7 @@ app.post('/api/transact',(req,res)=>{
             message: error.message
         })        
     }
+    
     transactionPool.setTransaction(transaction)
     pubsub.brodcastTransaction(transaction)
 
@@ -81,6 +83,17 @@ app.get('/api/transaction-pool-map',(req,res)=>{
 app.get('/api/mine-transactions',(req,res)=>{
     transactionMiner.mineTransactions()
     res.redirect('/api/blocks')
+})
+
+app.get('/api/wallet-info',(req,res)=>{
+    const address = wallet.publicKey
+    res.json({
+        address,
+        balance : Wallet.calculateBalance({
+            chain : blockchain.chain,
+            address
+        })
+    })
 })
 
 const syncWithRootState = () =>{
