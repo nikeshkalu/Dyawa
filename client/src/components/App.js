@@ -25,7 +25,8 @@ class App extends Component{
                 <br/>
                 <div>
                     <Link to='/blocks'>Blocks</Link><br/>
-                    <Link to='/conductTransaction'>Conduct Transaction</Link>
+                    <Link to='/conductTransaction'>Conduct Transaction</Link><br/>
+                    <Link to='/transaction-pool'>Transaction Pool</Link>
 
                 </div>
                
