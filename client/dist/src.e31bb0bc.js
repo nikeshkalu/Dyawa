@@ -55167,6 +55167,10 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Transaction = _interopRequireDefault(require("./Transaction"));
 
+var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
+
+var _history = _interopRequireDefault(require("../history"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -55229,6 +55233,20 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "fetchMineTransaction", function () {
+      fetch("".concat(document.location.origin, "/api/mine-transactions")).then(function (response) {
+        if (response.status == 200) {
+          alert('Mine successful');
+
+          _history.default.push('/blocks');
+
+          location.reload();
+        } else {
+          alert('Mine Unsuccesful');
+        }
+      }); // .then(json => this.setState({ transactionPoolMap: json }));
+    });
+
     return _this;
   }
 
@@ -55256,7 +55274,14 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/_react.default.createElement(_Transaction.default, {
           transaction: transaction
         }), /*#__PURE__*/_react.default.createElement("hr", null));
-      })));
+      })), /*#__PURE__*/_react.default.createElement(_Button.default, {
+        type: "submit",
+        fullWidth: true,
+        variant: "contained",
+        color: "primary",
+        onClick: this.fetchMineTransaction // className={classes.submit}
+
+      }, "Mine Transaction"));
     }
   }]);
 
@@ -55265,7 +55290,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
 
 var _default = TransactionPool;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./Transaction":"components/Transaction.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./Transaction":"components/Transaction.js","@material-ui/core/Button":"../../node_modules/@material-ui/core/esm/Button/index.js","../history":"history.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -55334,7 +55359,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6243" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "12819" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

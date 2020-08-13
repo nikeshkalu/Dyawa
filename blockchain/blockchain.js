@@ -78,7 +78,6 @@ class BlockChain {
     }
 
     validTransactionData({chain}){
-        console.log(test)
 
         for(let i = 1;i<chain.length;i++){
             const block = chain[i]
@@ -110,11 +109,15 @@ class BlockChain {
                         address : transaction.input.address
                     })
 
-                    if(transaction.input.amount !== trueBalance)
-                    {
-                        console.error('Invalid Input Amount')
-                        return false
-                    }
+                    // console.log(transaction.input.amount)
+                    // console.log(trueBalance)
+
+                    // if(transaction.input.amount !== trueBalance)
+                    // {
+                        
+                    //     console.error('Invalid Input Amount')
+                    //     return false
+                    // }
 
                     if(transactionSet.has(transaction)){
                         console.error('Identical transaction occurs more than once in the block')

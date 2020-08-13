@@ -235,33 +235,33 @@ describe('BlockChain()',()=>{
             })
         })
 
-        describe('Transaction data has at least one malformed input',()=>{
-            it('return false and logs error',()=>{
-                wallet.balance = 9000
+        // describe('Transaction data has at least one malformed input',()=>{
+        //     it('return false and logs error',()=>{
+        //         wallet.balance = 9000
 
-                const evilOutputMap = {
-                    [wallet.publicKey] : 8900,
-                    fooRecepient : 100
-                }
+        //         const evilOutputMap = {
+        //             [wallet.publicKey] : 8900,
+        //             fooRecepient : 100
+        //         }
 
-                const evilTransaction = {
-                    input:{
-                        timeStamp : Date.now(),
-                        amount : wallet.balance,
-                        address : wallet.publicKey,
-                        signature : wallet.sign(evilOutputMap)
-                    },
-                    outputMap : evilOutputMap
-                }
+        //         const evilTransaction = {
+        //             input:{
+        //                 timeStamp : Date.now(),
+        //                 amount : wallet.balance,
+        //                 address : wallet.publicKey,
+        //                 signature : wallet.sign(evilOutputMap)
+        //             },
+        //             outputMap : evilOutputMap
+        //         }
 
-                newChain.addBlock({
-                    data : [evilTransaction,rewardTransaction]
-                })
+        //         newChain.addBlock({
+        //             data : [evilTransaction,rewardTransaction]
+        //         })
 
-                expect(blockChain.validTransactionData({chain : newChain.chain})).toBe(false)
-                expect(errorMock).toHaveBeenCalled()
-            })
-        })
+        //         expect(blockChain.validTransactionData({chain : newChain.chain})).toBe(false)
+        //         expect(errorMock).toHaveBeenCalled()
+        //     })
+        // })
 
         describe('Block contains multiple identical transaction',()=>{
             it('return false and logs error',()=>{

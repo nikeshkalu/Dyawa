@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import Transaction from './Transaction'
+import Button from '@material-ui/core/Button';
+import history from '../history'
 
 const POOL_INTERVAL_MS = 10000
 class TransactionPool extends Component{
@@ -10,6 +12,25 @@ class TransactionPool extends Component{
             .then(response => response.json())
             .then(json => this.setState({ transactionPoolMap: json }));
   
+    }
+    
+    fetchMineTransaction = () =>{
+        fetch(`${document.location.origin}/api/mine-transactions`)
+            .then(response => {
+                if(response.status == 200){
+                    alert('Mine successful')
+                       history.push('/blocks')
+                       location.reload();
+                }
+                else{
+                    alert('Mine Unsuccesful')
+                }
+
+              
+               
+            })
+
+            // .then(json => this.setState({ transactionPoolMap: json }));
     }
 
     componentDidMount(){
@@ -41,6 +62,16 @@ class TransactionPool extends Component{
                         })
                     }
                 </div>
+              <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        onClick={this.fetchMineTransaction}
+                        // className={classes.submit}
+                        >
+                        Mine Transaction
+                    </Button>
             </div>
         )
     }
