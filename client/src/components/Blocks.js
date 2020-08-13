@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Block from './Block'
+import {Link} from 'react-router-dom'
 
 
 class Blocks extends Component {
@@ -18,15 +19,15 @@ class Blocks extends Component {
       
     return (
       <div>
+         <div>
+             <Link to='/'>Home</Link>
+        </div>
         <h3>Blocks</h3>
         
         {
           this.state.blocks.map(block => {
-            return (
-                    
+            return (          
                     <Block key={block.hash} block={block}/>
-                 
-              
             ); 
           })
         }

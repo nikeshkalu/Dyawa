@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Transaction from './Transaction'
 
 class Block extends Component{
     render(){
@@ -18,7 +19,16 @@ class Block extends Component{
                     TimeStamp : {new Date(timeStamp).toLocaleDateString()}
                 </div>
                 <div>
-                    Data : {stringyfiedData}
+                    Data : {
+                        data.map(transaction =>{
+                            return(
+                                <div key={transaction.id}>
+                                    <Transaction transaction={transaction}/>
+                                </div>
+                            )
+                        })
+                    }
+                    {/* {stringyfiedData} */}
                 </div>
                 <hr/>
             </div>

@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import Blocks from './Blocks'
+// import Blocks from './Blocks'
+import {Link} from 'react-router-dom'
 
 class App extends Component{
     state = { walletInfo: {} };
@@ -17,13 +18,16 @@ class App extends Component{
                 <div>
                 Welcome to Dyawa Projects
                 </div>
-                
                 <hr/>
                 wallet:
                 <div> Address:{address}</div>
                 <div>Balance:{balance}</div>
                 <br/>
-                <Blocks/>
+                <div>
+                    <Link to='/blocks'>Blocks</Link><br/>
+                    <Link to='/conductTransaction'>Conduct Transaction</Link>
+
+                </div>
                
             </div>
         )
