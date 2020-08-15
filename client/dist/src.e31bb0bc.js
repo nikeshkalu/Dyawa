@@ -55171,6 +55171,8 @@ var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
 var _history = _interopRequireDefault(require("../history"));
 
+var _reactRouterDom = require("react-router-dom");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -55268,7 +55270,9 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Transaction Pool"), Object.values(this.state.transactionPoolMap).map(function (transaction) {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+        to: "/"
+      }, "Home"), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Transaction Pool"), Object.values(this.state.transactionPoolMap).map(function (transaction) {
         return /*#__PURE__*/_react.default.createElement("div", {
           key: transaction.id
         }, /*#__PURE__*/_react.default.createElement(_Transaction.default, {
@@ -55290,7 +55294,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
 
 var _default = TransactionPool;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./Transaction":"components/Transaction.js","@material-ui/core/Button":"../../node_modules/@material-ui/core/esm/Button/index.js","../history":"history.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./Transaction":"components/Transaction.js","@material-ui/core/Button":"../../node_modules/@material-ui/core/esm/Button/index.js","../history":"history.js","react-router-dom":"../../node_modules/react-router-dom/esm/react-router-dom.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -55359,7 +55363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "12819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2600" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

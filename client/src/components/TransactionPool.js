@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Transaction from './Transaction'
 import Button from '@material-ui/core/Button';
 import history from '../history'
+import {Link} from 'react-router-dom'
 
 const POOL_INTERVAL_MS = 10000
 class TransactionPool extends Component{
@@ -49,6 +50,8 @@ class TransactionPool extends Component{
     render(){
         return(
             <div>
+                <Link to="/">Home</Link>
+                <hr/>
                 <div>
                     <h3>Transaction Pool</h3>
                     {
