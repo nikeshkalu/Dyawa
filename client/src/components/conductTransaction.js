@@ -27,16 +27,17 @@ class ConductTransaction extends Component{
           }
         
         return(
-            <div>
+            <div style={{color : "white"}}>
+                <br/><br/>
                 <div>Conduct Transaction</div>
                 <form noValidate onSubmit={onSubmit}>
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
-                        fullWidth
+                        // fullWidth
                         id="recepient"
-                        label="Recepient"
+                        label="Recepient address"
                         name="recepient"
                         autoComplete="recepient"
                         autoFocus
@@ -47,7 +48,7 @@ class ConductTransaction extends Component{
                         variant="outlined"
                         margin="normal"
                         required
-                        fullWidth
+                        // fullWidth
                         name="amount"
                         label="Amount"
                         id="amount"
@@ -58,7 +59,6 @@ class ConductTransaction extends Component{
                         
                     <Button
                         type="submit"
-                        fullWidth
                         variant="contained"
                         color="primary"
                         // className={classes.submit}

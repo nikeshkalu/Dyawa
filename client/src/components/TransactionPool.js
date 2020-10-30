@@ -67,13 +67,12 @@ class TransactionPool extends Component{
                 </div>
               <Button
                         type="submit"
-                        fullWidth
                         variant="contained"
                         color="primary"
                         onClick={this.fetchMineTransaction}
                         // className={classes.submit}
                         >
-                        Mine Transaction
+                        Mine New Block
                     </Button>
             </div>
         )
