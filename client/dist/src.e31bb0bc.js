@@ -55574,7 +55574,12 @@ var App = /*#__PURE__*/function (_Component) {
       var _this$state$walletInf = this.state.walletInfo,
           address = _this$state$walletInf.address,
           balance = _this$state$walletInf.balance;
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Grid.default, null, /*#__PURE__*/_react.default.createElement(_Paper.default, {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        style: {
+          fontFamily: "Comic Sans MS, cursive, sans-serif",
+          padding: 15
+        }
+      }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Grid.default, null, /*#__PURE__*/_react.default.createElement(_Paper.default, {
         style: {
           textAlign: "center",
           height: 40,
@@ -55584,7 +55589,7 @@ var App = /*#__PURE__*/function (_Component) {
           background: "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
           color: "white"
         }
-      }, "ADDRESS ", address)), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Grid.default, {
+      }, "ADDRESS ", address)), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Grid.default, {
         container: true,
         spacing: 10,
         direction: "row",
@@ -55634,13 +55639,14 @@ var App = /*#__PURE__*/function (_Component) {
           background: "linear-gradient(45deg, rgb(69, 20, 90), rgb(255, 83, 0))",
           flexGrow: 1
         }
-      }, /*#__PURE__*/_react.default.createElement(_TransactionPool.default, null))))), /*#__PURE__*/_react.default.createElement("div", null, "Wallet Balance:", balance), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/transaction-pool"
-      }, "Transaction Pool"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      }, /*#__PURE__*/_react.default.createElement(_TransactionPool.default, null))))), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("hr", {
+        style: {
+          paddingLeft: 20,
+          paddingRight: 20
+        }
+      }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/blocks"
-      }, "Blocks"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/conductTransaction"
-      }, "Conduct Transaction"), /*#__PURE__*/_react.default.createElement("br", null)));
+      }, "Blocks"), /*#__PURE__*/_react.default.createElement("br", null)));
     }
   }]);
 
@@ -55894,7 +55900,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10387" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "13441" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

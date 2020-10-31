@@ -7,14 +7,10 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ConductTransaction from './conductTransaction';
 
-
-
 class App extends Component{
  
-    state = { walletInfo: {} };
+  state = { walletInfo: {} };
     
-
-
   componentDidMount() {
     fetch(`${document.location.origin}/api/wallet-info`)
       .then(response => response.json())
@@ -24,9 +20,11 @@ class App extends Component{
     render(){
         const {address,balance} = this.state.walletInfo
         return(
-            <div >
+            <div style={{
+                fontFamily : "Comic Sans MS, cursive, sans-serif",
+                padding : 15
+            }}>
                 <div>
-
                 <Grid >
                     <Paper style={{
                         textAlign : "center",
@@ -35,16 +33,13 @@ class App extends Component{
                         alignItems : "center",
                         paddingTop : 18,
                         background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
-                        color: "white"
-                        
-                    }}>
-                        
-                            ADDRESS {address}
-                        
+                        color: "white"      
+                    }}>                       
+                          ADDRESS {address}  
                         </Paper>
                 </Grid>
 
-                <br/>
+                <br/><br/>
                 <Grid container 
                     spacing={10}
                     direction="row"
@@ -54,7 +49,6 @@ class App extends Component{
                     >
                         <Grid item xs={1} sm={3} 
                             >
-
                             <Paper style={{
                                height: 200,
                                width: 200,
@@ -94,12 +88,13 @@ class App extends Component{
                 
                 </div>
                 
-                <div>Wallet Balance:{balance}</div>
+                {/* <div>Wallet Balance:{balance}</div> */}
                 <br/>
                 <div>
-                    <Link to='/transaction-pool'>Transaction Pool</Link>
+                    <hr style={{paddingLeft:20,paddingRight:20}}></hr>
                     <Link to='/blocks'>Blocks</Link><br/>
-                    <Link to='/conductTransaction'>Conduct Transaction</Link><br/>
+                    {/* <Link to='/transaction-pool'>Transaction Pool</Link> */}
+                    {/* <Link to='/conductTransaction'>Conduct Transaction</Link><br/> */}
                     
 
                 </div>
