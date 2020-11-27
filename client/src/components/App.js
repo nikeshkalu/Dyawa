@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ConductTransaction from './conductTransaction';
 import Main from './Main';
+import { motion } from "framer-motion"
+
 
 class App extends Component{
  
@@ -26,6 +28,12 @@ class App extends Component{
             }}>
                 <div>
                 <Grid >
+                <motion.div
+                whileHover={{
+                    scale: 1.005,
+                    transition: { duration: 0.5 },
+                    boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+                 }}>
                     <Paper style={{
                         textAlign : "center",
                         height : 40,
@@ -37,6 +45,7 @@ class App extends Component{
                     }}>                       
                           ADDRESS {address}  
                         </Paper>
+                  </motion.div>      
                 </Grid>
                     <br/>
                     <br/>

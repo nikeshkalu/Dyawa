@@ -8,6 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ConductTransaction from './conductTransaction';
 import TransactionPool from './TransactionPool';
+import { motion } from "framer-motion"
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +38,16 @@ export default function Main({balance}) {
         <Grid container justify="center" spacing={spacing} direction="row" alignItems="center">
 
              <Grid item>
+             <motion.div
+              whileHover={{
+                scale: 1.2,
+                transition: { duration: 0.5 },
+                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+
+              }}>
+
+
+
                  <Paper style={{
                                height: 200,
                                width: 200,
@@ -48,9 +61,17 @@ export default function Main({balance}) {
                                      <br/>
                                      <div style={{color:"white",fontSize:20}}>BALANCE</div>
                 </Paper>
-             </Grid>
+                </motion.div>
 
+             </Grid>
+            
              <Grid item >
+             <motion.div
+              whileHover={{
+                scale: 1.15,
+                transition: { duration: 0.5 },
+                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+              }}>
                 <Paper style={{
                                 height: 350,
                                 textAlign: 'center',
@@ -60,9 +81,19 @@ export default function Main({balance}) {
                             }}>
                                 <br/><ConductTransaction/>
                 </Paper>
+               </motion.div> 
+
             </Grid>
 
             <Grid item>
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.5 },
+                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+
+              }}>
+
                 <Paper style={{
                                 textAlign: 'center',
                                 height: 550,
@@ -73,6 +104,8 @@ export default function Main({balance}) {
                             }}>
                                 <TransactionPool/>
                 </Paper>
+            </motion.div>
+
             </Grid>
            
         </Grid>
