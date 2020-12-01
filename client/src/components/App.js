@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import ConductTransaction from './conductTransaction';
 import Main from './Main';
 import { motion } from "framer-motion"
+import Blocks from './Blocks';
 
 
 class App extends Component{
@@ -36,12 +37,14 @@ class App extends Component{
                  }}>
                     <Paper style={{
                         textAlign : "center",
-                        height : 40,
+                        maxHeight : 1000,
                         fontSize : 18,
                         alignItems : "center",
                         paddingTop : 18,
+                        paddingBottom : 18,
                         background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
-                        color: "white"      
+                        color: "white" ,
+                        flexGrow : 1,     
                     }}>                       
                           ADDRESS {address}  
                         </Paper>
@@ -54,16 +57,17 @@ class App extends Component{
 
                 <br/><br/>
                 
-
-                
                 </div>
                 
                 <br/>
                 <div>
                     <hr style={{paddingLeft:20,paddingRight:20}}></hr>
-                    <Link to='/blocks'>Blocks</Link><br/>
+                    {/* <Link to='/blocks'>Blocks</Link><br/> */}
                     {/* <Link to='/transaction-pool'>Transaction Pool</Link> */}
                     {/* <Link to='/conductTransaction'>Conduct Transaction</Link><br/> */}
+
+                    <h1 style={{textAlign:"center"}}>BLOCKCHAIN</h1>
+                    <Blocks/>
                     
 
                 </div>

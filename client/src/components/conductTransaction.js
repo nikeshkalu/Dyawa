@@ -30,7 +30,7 @@ class ConductTransaction extends Component{
             <div style={{color : "white"}}>
                 <br/><br/>
                 <div>Conduct Transaction</div>
-                <form noValidate onSubmit={onSubmit}>
+                <form noValidate onSubmit={onSubmit} >
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -42,6 +42,20 @@ class ConductTransaction extends Component{
                         autoComplete="recepient"
                         autoFocus
                         onChange={(event)=>this.setState({recepient:event.target.value})}
+                        style = {{
+                            border: '1px solid #e2e2e1',
+                            overflow: 'hidden',
+                            borderRadius: 6,
+                            // backgroundColor: '#fcfcfb',
+                            '&:hover': {
+                            backgroundColor: 'linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))',
+                            },
+                            '&$focused': {
+                            backgroundColor: 'linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))',
+                            borderColor: 'white',
+                            },
+
+                        }}
                         // ref={register}
                     />
                     <TextField
@@ -54,6 +68,20 @@ class ConductTransaction extends Component{
                         id="amount"
                         autoComplete="Amount"
                         onChange={(event)=>this.setState({amount:event.target.value})}
+                        style = {{
+                            border: '1px solid #e2e2e1',
+                            overflow: 'hidden',
+                            borderRadius: 6,
+                            // backgroundColor: '#fcfcfb',
+                            '&:hover': {
+                            backgroundColor: 'linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))',
+                            },
+                            '&$focused': {
+                            backgroundColor: 'linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))',
+                            borderColor: 'white',
+                            },
+
+                        }}
                     />
 
                         

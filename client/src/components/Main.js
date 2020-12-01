@@ -40,13 +40,10 @@ export default function Main({balance}) {
              <Grid item>
              <motion.div
               whileHover={{
-                scale: 1.2,
+                scale: 1.005,
                 transition: { duration: 0.5 },
                 boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
-
               }}>
-
-
 
                  <Paper style={{
                                height: 200,
@@ -54,7 +51,8 @@ export default function Main({balance}) {
                             //    paddingRight : 100, 
                                textAlign: 'center',
                                background:"linear-gradient(45deg, rgb(79, 0, 188), rgb(41, 171, 226))",
-                               flexGrow: 1
+                               flexGrow: 1,
+                               
                                  }}>
                                      <br/><br/><br/>
                                      <div style={{fontSize:50,color:"white"}}>{balance}</div>
@@ -68,7 +66,7 @@ export default function Main({balance}) {
              <Grid item >
              <motion.div
               whileHover={{
-                scale: 1.15,
+                scale: 1.005,
                 transition: { duration: 0.5 },
                 boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
               }}>
@@ -77,6 +75,7 @@ export default function Main({balance}) {
                                 textAlign: 'center',
                                 flexGrow: 1,
                                 background:"linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))",
+                                // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
                                 width : 320,
                             }}>
                                 <br/><ConductTransaction/>
@@ -88,7 +87,7 @@ export default function Main({balance}) {
             <Grid item>
             <motion.div
               whileHover={{
-                scale: 1.1,
+                scale: 1.005,
                 transition: { duration: 0.5 },
                 boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
 
@@ -98,8 +97,9 @@ export default function Main({balance}) {
                                 textAlign: 'center',
                                 height: 550,
                                background:"linear-gradient(45deg, rgb(69, 20, 90), rgb(255, 83, 0))",
+                              // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
                                flexGrow: 1,
-                               width : 550,
+                               width : 300,
 
                             }}>
                                 <TransactionPool/>
