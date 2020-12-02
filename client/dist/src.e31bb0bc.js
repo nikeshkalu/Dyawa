@@ -33219,10 +33219,14 @@ var Transaction = function Transaction(props) {
       input = _props$transaction.input,
       outputMap = _props$transaction.outputMap;
   var recepients = Object.keys(outputMap);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, "From : ", input.address, " | Balance : ", input.amount), recepients.map(function (recepient) {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: 15
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", null, "From : ", input.address, " ", /*#__PURE__*/_react.default.createElement("br", null)), recepients.map(function (recepient) {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: recepient
-    }, "To : ", recepient, " | Sent : ", outputMap[recepient]);
+    }, "To : ", recepient, " ", /*#__PURE__*/_react.default.createElement("br", null), "Sent : ", outputMap[recepient]);
   }));
 };
 
@@ -67496,7 +67500,10 @@ var Block = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/_react.default.createElement("div", {
         style: {
           alignItems: "center",
-          textAlign: "center"
+          textAlign: "center",
+          width: 900,
+          alignContent: "center",
+          margin: "auto"
         }
       }, /*#__PURE__*/_react.default.createElement(_Grid.default, null, /*#__PURE__*/_react.default.createElement(_framerMotion.motion.div, {
         whileHover: {
@@ -67509,14 +67516,21 @@ var Block = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement(_Paper.default, {
         style: {
           textAlign: "center",
-          maxHeight: 1000,
+          maxHeight: 10000,
           fontSize: 18,
+          alignContent: "center",
           alignItems: "center",
-          paddingTop: 18,
+          // paddingTop : 18,
+          overflow: "auto",
           flexGrow: 1 // background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
 
         }
-      }, /*#__PURE__*/_react.default.createElement("div", null, "Hash : ", hash), /*#__PURE__*/_react.default.createElement("div", null, "TimeStamp : ", new Date(timeStamp).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("div", null, "Datas : ", data.map(function (transaction) {
+      }, "Hash: ", /*#__PURE__*/_react.default.createElement("div", {
+        style: {
+          fontSize: 15,
+          overflow: "auto"
+        }
+      }, /*#__PURE__*/_react.default.createElement("br", null), hash), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", null, "TimeStamp : ", new Date(timeStamp).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("div", null, "Data : ", data.map(function (transaction) {
         return /*#__PURE__*/_react.default.createElement("div", {
           key: transaction.id
         }, /*#__PURE__*/_react.default.createElement(_Transaction.default, {
@@ -67754,7 +67768,7 @@ var App = /*#__PURE__*/function (_Component) {
           paddingBottom: 18,
           background: "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
           color: "white",
-          flexGrow: 1
+          overflow: "auto"
         }
       }, "ADDRESS ", address))), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Main.default, {
         balance: balance
@@ -67845,7 +67859,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7893" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4516" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

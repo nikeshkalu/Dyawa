@@ -17,7 +17,10 @@ class Block extends Component{
         return(
             <div style={{
                 alignItems:"center",
-                 textAlign : "center"
+                 textAlign : "center",
+                 width : 900,
+                 alignContent : "center",
+                 margin : "auto"
                  }}>
             <Grid >
                 <motion.div
@@ -28,23 +31,25 @@ class Block extends Component{
                  }}>
                     <Paper style={{
                         textAlign : "center",
-                        maxHeight : 1000,
+                        maxHeight : 10000,
                         fontSize : 18,
+                        alignContent : "center",
                         alignItems : "center",
-                        paddingTop : 18,
+                        // paddingTop : 18,
+                        overflow : "auto",
                         flexGrow: 1,
 
                         // background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
                     }}>                       
                            
-                                <div>
-                                    Hash : {hash}
-                                </div>
+                           Hash: <div style={{fontSize:15,overflow:"auto"}}><br></br>
+                                   {hash}
+                                </div><br/>
                                 <div>
                                     TimeStamp : {new Date(timeStamp).toLocaleDateString()}
                                 </div>
                                 <div>
-                                    Datas : {
+                                    Data : {
                                         data.map(transaction =>{
                                             return(
                                                 <div key={transaction.id}>

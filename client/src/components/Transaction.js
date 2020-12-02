@@ -5,16 +5,16 @@ const Transaction = (props) =>{
     const recepients = Object.keys(outputMap)
 
     return(
-        <div>
+        <div style={{fontSize:15}}>
             <div>
-                From : {input.address} |
-                Balance : {input.amount}
+                From : {input.address} <br></br>
+                {/* Balance : {input.amount} */}
             </div>
             {
                 recepients.map(recepient =>{
                     return(
                         <div key={recepient}>
-                            To : {recepient} | 
+                            To : {recepient} <br/>
                             Sent : {outputMap[recepient]}
                         </div>
                     )

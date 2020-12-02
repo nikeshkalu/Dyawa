@@ -44,7 +44,7 @@ class App extends Component{
                         paddingBottom : 18,
                         background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
                         color: "white" ,
-                        flexGrow : 1,     
+                        overflow : "auto",     
                     }}>                       
                           ADDRESS {address}  
                         </Paper>
