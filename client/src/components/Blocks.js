@@ -22,9 +22,10 @@ class Blocks extends Component {
         {/* <h3>Blocks</h3> */}
         
         {
-          this.state.blocks.map(block => {
+          
+          this.state.blocks.map((block,i) => {
             return (          
-                    <Block key={block.hash} block={block}/>
+                    <Block key={block.hash} block={block} index={i}/>
             ); 
           })
         }

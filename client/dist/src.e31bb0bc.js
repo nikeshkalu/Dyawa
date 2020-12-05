@@ -67493,7 +67493,11 @@ var Block = /*#__PURE__*/function (_Component) {
       var _this$props$block = this.props.block,
           timeStamp = _this$props$block.timeStamp,
           data = _this$props$block.data,
-          hash = _this$props$block.hash; // const hashDisplay = `${hash.subString(0,15)}...`
+          hash = _this$props$block.hash,
+          lastHash = _this$props$block.lastHash,
+          nonce = _this$props$block.nonce,
+          difficulty = _this$props$block.difficulty;
+      var blockNumber = this.props.index; // const hashDisplay = `${hash.subString(0,15)}...`
 
       var stringyfiedData = JSON.stringify(data); // const dataDisplay = stringyfiedData.length>35?`${stringyfiedData.subString(0,35)}...`:stringyfiedData
 
@@ -67501,7 +67505,8 @@ var Block = /*#__PURE__*/function (_Component) {
         style: {
           alignItems: "center",
           textAlign: "center",
-          width: 900,
+          maxWidth: 900,
+          minWidth: 200,
           alignContent: "center",
           margin: "auto"
         }
@@ -67515,28 +67520,49 @@ var Block = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/_react.default.createElement(_Paper.default, {
         style: {
-          textAlign: "center",
+          textAlign: "left",
           maxHeight: 10000,
           fontSize: 18,
           alignContent: "center",
           alignItems: "center",
-          // paddingTop : 18,
+          padding: 30,
           overflow: "auto",
           flexGrow: 1 // background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
 
         }
-      }, "Hash: ", /*#__PURE__*/_react.default.createElement("div", {
+      }, "Previous Hash: ", /*#__PURE__*/_react.default.createElement("i", {
         style: {
           fontSize: 15,
+          overflow: "auto",
+          color: "green"
+        }
+      }, lastHash), /*#__PURE__*/_react.default.createElement("br", null), "Hash: ", /*#__PURE__*/_react.default.createElement("i", {
+        style: {
+          fontSize: 15,
+          overflow: "auto",
+          color: "green"
+        }
+      }, hash), /*#__PURE__*/_react.default.createElement("br", null), "Nonce : ", nonce, /*#__PURE__*/_react.default.createElement("br", null), "Difficulty : ", difficulty, /*#__PURE__*/_react.default.createElement("div", {
+        style: {
           overflow: "auto"
         }
-      }, /*#__PURE__*/_react.default.createElement("br", null), hash), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", null, "TimeStamp : ", new Date(timeStamp).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("div", null, "Data : ", data.map(function (transaction) {
+      }, "Data : ", data.map(function (transaction) {
         return /*#__PURE__*/_react.default.createElement("div", {
           key: transaction.id
         }, /*#__PURE__*/_react.default.createElement(_Transaction.default, {
           transaction: transaction
         }));
-      }))))), /*#__PURE__*/_react.default.createElement(_ExpandMore.default, {
+      }), /*#__PURE__*/_react.default.createElement("br", null)), /*#__PURE__*/_react.default.createElement("div", {
+        style: {
+          fontSize: 40,
+          overflow: "auto"
+        }
+      }, "Block #", blockNumber, /*#__PURE__*/_react.default.createElement("i", {
+        style: {
+          fontSize: 15,
+          paddingLeft: 30
+        }
+      }, "Mined on ", new Date(timeStamp).toLocaleDateString()))))), /*#__PURE__*/_react.default.createElement(_ExpandMore.default, {
         style: {
           fontSize: 50
         }
@@ -67633,10 +67659,11 @@ var Blocks = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       console.log('this.state', this.state);
-      return /*#__PURE__*/_react.default.createElement("div", null, this.state.blocks.map(function (block) {
+      return /*#__PURE__*/_react.default.createElement("div", null, this.state.blocks.map(function (block, i) {
         return /*#__PURE__*/_react.default.createElement(_Block.default, {
           key: block.hash,
-          block: block
+          block: block,
+          index: i
         });
       }));
     }
@@ -67859,7 +67886,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4516" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8632" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

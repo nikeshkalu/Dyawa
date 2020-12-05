@@ -3,8 +3,8 @@ const MINE_RATE = 1000 //1000ms = 1s
 const STARTING_BALANCE = 1000
 const GENESIS_DATA = {
     timeStamp:'1',
-    lastHash : '--------',
-    hash : 'hash-one',
+    lastHash : '---------',
+    hash : '00000000000000000000000000000000000000000000000000000000000',
     difficulty:initialDifficulty,
     nonce : 0,
     data: []

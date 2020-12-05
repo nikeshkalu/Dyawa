@@ -7,8 +7,8 @@ import Paper from '@material-ui/core/Paper';
 
 class Block extends Component{
     render(){
-        const {timeStamp,data,hash} = this.props.block
-
+        const {timeStamp,data,hash,lastHash,nonce,difficulty} = this.props.block
+        var blockNumber = this.props.index
         // const hashDisplay = `${hash.subString(0,15)}...`
         const stringyfiedData = JSON.stringify(data)
         // const dataDisplay = stringyfiedData.length>35?`${stringyfiedData.subString(0,35)}...`:stringyfiedData
@@ -18,9 +18,10 @@ class Block extends Component{
             <div style={{
                 alignItems:"center",
                  textAlign : "center",
-                 width : 900,
+                 maxWidth : 900,
+                 minWidth : 200,
                  alignContent : "center",
-                 margin : "auto"
+                 margin : "auto",
                  }}>
             <Grid >
                 <motion.div
@@ -30,25 +31,31 @@ class Block extends Component{
                     boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
                  }}>
                     <Paper style={{
-                        textAlign : "center",
+                        textAlign : "left",
                         maxHeight : 10000,
                         fontSize : 18,
                         alignContent : "center",
                         alignItems : "center",
-                        // paddingTop : 18,
+                        padding : 30,
                         overflow : "auto",
                         flexGrow: 1,
 
                         // background:"linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
-                    }}>                       
-                           
-                           Hash: <div style={{fontSize:15,overflow:"auto"}}><br></br>
-                                   {hash}
-                                </div><br/>
-                                <div>
-                                    TimeStamp : {new Date(timeStamp).toLocaleDateString()}
-                                </div>
-                                <div>
+                    }}>  
+                          Previous Hash: <i style={{fontSize:15,overflow:"auto",color:"green"}}>
+                                    {lastHash}
+                                        </i><br/>  
+
+                           Hash: <i style={{fontSize:15,overflow:"auto",color:"green"}}>
+                               {hash}
+                                </i><br/>
+
+                           Nonce : {nonce}<br/>
+
+                           Difficulty : {difficulty}     
+                
+                                
+                                <div style={{overflow:"auto"}}>
                                     Data : {
                                         data.map(transaction =>{
                                             return(
@@ -59,9 +66,22 @@ class Block extends Component{
                                             )
                                         })
                                     }
-
-                                    
+                                <br/>
                                 </div>
+                               
+                                    <div style={{fontSize:40,overflow:"auto"}}>
+                                        Block #{blockNumber} 
+                                        <i style={{fontSize:15,paddingLeft:30}}>
+                                            Mined on {new Date(timeStamp).toLocaleDateString()}
+                                        </i>
+
+                                    </div>
+                                    
+                                    
+                                    
+                               
+                               
+
                         </Paper>
                   </motion.div>      
                 </Grid>
