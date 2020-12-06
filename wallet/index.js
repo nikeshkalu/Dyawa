@@ -42,7 +42,7 @@ class Wallet{
                 const addressOutput = transaction.outputMap[address]
                 
                 if(addressOutput){
-                    outputTotal = parseInt(outputTotal) + parseInt(addressOutput)
+                    outputTotal = parseFloat(outputTotal) + parseFloat(addressOutput)
                 }
             }
             if(hasConductedTransaction){
@@ -50,7 +50,7 @@ class Wallet{
             }
         }
         
-        return hasConductedTransaction ? outputTotal :STARTING_BALANCE + parseInt(outputTotal)
+        return hasConductedTransaction ? outputTotal :STARTING_BALANCE + parseFloat(outputTotal)
     }
 
 }

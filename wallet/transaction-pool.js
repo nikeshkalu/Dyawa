@@ -3,10 +3,20 @@ const Transaction = require("./transaction")
 class TransactionPool{
     constructor(){
         this.transactionMap = {}
+        this.totalFee = 0
+    }
+
+    calculateTotalFee({fee}){
+        this.totalFee = this.totalFee + fee 
+    }
+
+    getTotalfee(){
+        return this.totalFee
     }
 
     clear(){
         this.transactionMap = {}
+        this.totalFee = 0
     }
 
     setTransaction(transaction){
@@ -23,9 +33,12 @@ class TransactionPool{
     }
 
     validTransaction(){
+        // this.totalFee = this.totalFee + 1
+        // console.log(this.transactionMap)
+        
+
         return Object.values(this.transactionMap).filter(
             transaction => Transaction.validTransaction(transaction)    
-
         )
     }
 

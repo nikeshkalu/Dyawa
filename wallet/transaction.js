@@ -10,11 +10,12 @@ class Transaction{
         })
         this.input = input || this.createInput({senderWallet,outputMap : this.outputMap})
         
+        
     }
 
     createOutputMap({senderWallet,recepient,amount}){
         const outputMap = {}
-        outputMap[recepient] = amount
+        outputMap[recepient] = amount - (amount/100)
         outputMap[senderWallet.publicKey] = senderWallet.balance - amount
         return outputMap
     }
@@ -33,11 +34,12 @@ class Transaction{
         const {address,amount,signature} = input
        
         const outputTotal = Object.values(outputMap).reduce((total,outputAmount)=> parseInt(total) + parseInt(outputAmount))
+
        
-        if(amount!==outputTotal){
-            console.error(`Invalid Transaction from ${address}`)
-            return false
-        }
+        // if(amount!==outputTotal+(amount/100)){
+        //     console.error(`Invalid Transaction from ${address}`)
+        //     return false
+        // }
 
         if(!verifySignature({publicKey:address,data:outputMap,signature})){
             console.error(`Invalid Signature from ${address}`)
@@ -53,20 +55,22 @@ class Transaction{
         }
 
         if(!this.outputMap[recepient]){
-            this.outputMap[recepient]  = amount
+            this.outputMap[recepient]  = parseFloat(amount) - (parseFloat(amount)/100)
         }
         else{
-            this.outputMap[recepient] =  this.outputMap[recepient] + amount
+            this.outputMap[recepient] =  parseFloat(this.outputMap[recepient]) + parseFloat(amount)-(parseFloat(amount)/100)
         }
 
         this.outputMap[senderWallet.publicKey] = this.outputMap[senderWallet.publicKey] - amount
         this.input = this.createInput({senderWallet,outputMap:this.outputMap})
     }
 
-    static rewardTransaction({minerWallet}){
+    static rewardTransaction({minerWallet,amount}){
+        console.log('Fee')
+        console.log(amount)
         return new this({
-            input : REWARD_INPUT,
-            outputMap : {[minerWallet.publicKey] : MINING_REWARD}
+            input : REWARD_INPUT ,
+            outputMap : {[minerWallet.publicKey] : MINING_REWARD+amount}
         })
     }
 }

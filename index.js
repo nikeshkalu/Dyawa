@@ -63,6 +63,7 @@ app.post('/api/transact',(req,res)=>{
         }else{
             transaction = wallet.createTransaction({recepient,amount,chain:blockchain.chain})
         }
+        transactionPool.calculateTotalFee({fee : (parseInt(amount)/100)})
     }
     catch(error){
         return res.status(400).json({

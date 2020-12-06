@@ -4,6 +4,7 @@ const {REWARD_INPUT, MINING_REWARD} = require('../config')
 const Transaction = require("../wallet/transaction")
 const Wallet = require("../wallet")
 
+
 class BlockChain {
 
     constructor(){
@@ -93,10 +94,10 @@ class BlockChain {
                         return false
                     }
 
-                    if(Object.values(transaction.outputMap)[0] !== MINING_REWARD){
-                        console.error('Miner Reward amount is invalid')
-                        return false
-                    }
+                    // if(Object.values(transaction.outputMap)[0] !== MINING_REWARD + 1){
+                    //     console.error('Miner Reward amount is invalid')
+                    //     return false
+                    // }
                 }
                 else{
                     if(!Transaction.validTransaction(transaction)){

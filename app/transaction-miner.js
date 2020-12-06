@@ -15,7 +15,7 @@ class TransactionMiner{
         const validTransactions = this.transactionPool.validTransaction()
 
         //generate miner reward
-        validTransactions.push(Transaction.rewardTransaction({minerWallet:this.wallet}))
+        validTransactions.push(Transaction.rewardTransaction({minerWallet:this.wallet,amount:this.transactionPool.getTotalfee()}))
         
 
         //add a block consisting these transaction to the blockchain
