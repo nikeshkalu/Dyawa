@@ -19,7 +19,7 @@ class ConductTransaction extends Component{
             }).then(response => response.json())
               .then(json => {
                   alert(json.message || json.type)
-                  history.push('/transaction-pool')
+                //   history.push('/transaction-pool')
                   location.reload();
                   
               });
@@ -32,7 +32,7 @@ class ConductTransaction extends Component{
                 <div>Conduct Transaction</div>
                 <form noValidate onSubmit={onSubmit} >
                     <TextField
-                        variant="outlined"
+                        variant="filled"
                         margin="normal"
                         required
                         // fullWidth
@@ -59,7 +59,7 @@ class ConductTransaction extends Component{
                         // ref={register}
                     />
                     <TextField
-                        variant="outlined"
+                        variant="filled"
                         margin="normal"
                         required
                         // fullWidth
@@ -84,7 +84,8 @@ class ConductTransaction extends Component{
                         }}
                     />
 
-                        
+                        <br/>
+                        <br/>
                     <Button
                         type="submit"
                         variant="contained"

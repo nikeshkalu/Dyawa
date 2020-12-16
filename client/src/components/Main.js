@@ -33,9 +33,9 @@ export default function Main({balance}) {
   
 
   return (
-    <Grid container className={classes.root} spacing={10}>
+    <Grid container className={classes.root} spacing={5}>
       <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing} direction="row" alignItems="center">
+        <Grid container justify="space-evenly" spacing={spacing} direction="row" alignItems="center" >
 
              <Grid item>
              <motion.div
@@ -52,7 +52,6 @@ export default function Main({balance}) {
                                textAlign: 'center',
                                background:"linear-gradient(45deg, rgb(79, 0, 188), rgb(41, 171, 226))",
                                flexGrow: 1,
-                               
                                  }}>
                                      <br/><br/><br/>
                                      <div style={{fontSize:50,color:"white"}}>{balance}</div>
@@ -76,7 +75,7 @@ export default function Main({balance}) {
                                 flexGrow: 1,
                                 background:"linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))",
                                 // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
-                                width : 320,
+                                width : 290,
                             }}>
                                 <br/><ConductTransaction/>
                 </Paper>
@@ -99,7 +98,7 @@ export default function Main({balance}) {
                                background:"linear-gradient(45deg, rgb(69, 20, 90), rgb(255, 83, 0))",
                               // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
                                flexGrow: 1,
-                               width : 300,
+                               width : 330,
 
                             }}>
                                 <TransactionPool/>

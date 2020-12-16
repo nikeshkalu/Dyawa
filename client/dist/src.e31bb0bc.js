@@ -46296,7 +46296,8 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
         if (response.status == 200) {
           alert('Mine successful');
 
-          _history.default.push('/blocks');
+          _history.default.push('/'); //    history.push('/blocks')
+
 
           location.reload();
         } else {
@@ -46326,9 +46327,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-        to: "/"
-      }, "Home"), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Transaction Pool"), Object.values(this.state.transactionPoolMap).map(function (transaction) {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Transaction Pool"), Object.values(this.state.transactionPoolMap).map(function (transaction) {
         return /*#__PURE__*/_react.default.createElement("div", {
           key: transaction.id
         }, /*#__PURE__*/_react.default.createElement(_Transaction.default, {
@@ -55427,9 +55426,7 @@ var ConductTransaction = /*#__PURE__*/function (_Component) {
         }).then(function (response) {
           return response.json();
         }).then(function (json) {
-          alert(json.message || json.type);
-
-          _history.default.push('/transaction-pool');
+          alert(json.message || json.type); //   history.push('/transaction-pool')
 
           location.reload();
         });
@@ -55443,7 +55440,7 @@ var ConductTransaction = /*#__PURE__*/function (_Component) {
         noValidate: true,
         onSubmit: onSubmit
       }, /*#__PURE__*/_react.default.createElement(_TextField.default, {
-        variant: "outlined",
+        variant: "filled",
         margin: "normal",
         required: true // fullWidth
         ,
@@ -55472,7 +55469,7 @@ var ConductTransaction = /*#__PURE__*/function (_Component) {
         } // ref={register}
 
       }), /*#__PURE__*/_react.default.createElement(_TextField.default, {
-        variant: "outlined",
+        variant: "filled",
         margin: "normal",
         required: true // fullWidth
         ,
@@ -55498,7 +55495,7 @@ var ConductTransaction = /*#__PURE__*/function (_Component) {
             borderColor: 'white'
           }
         }
-      }), /*#__PURE__*/_react.default.createElement(_Button.default, {
+      }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
         type: "submit",
         variant: "contained",
         color: "primary" // className={classes.submit}
@@ -67272,13 +67269,13 @@ function Main(_ref) {
   return /*#__PURE__*/_react.default.createElement(_Grid.default, {
     container: true,
     className: classes.root,
-    spacing: 10
+    spacing: 5
   }, /*#__PURE__*/_react.default.createElement(_Grid.default, {
     item: true,
     xs: 12
   }, /*#__PURE__*/_react.default.createElement(_Grid.default, {
     container: true,
-    justify: "center",
+    justify: "space-evenly",
     spacing: spacing,
     direction: "row",
     alignItems: "center"
@@ -67328,7 +67325,7 @@ function Main(_ref) {
       flexGrow: 1,
       background: "linear-gradient(45deg, rgb(49, 42, 108), rgb(133, 45, 145))",
       // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
-      width: 320
+      width: 290
     }
   }, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_conductTransaction.default, null)))), /*#__PURE__*/_react.default.createElement(_Grid.default, {
     item: true
@@ -67347,7 +67344,7 @@ function Main(_ref) {
       background: "linear-gradient(45deg, rgb(69, 20, 90), rgb(255, 83, 0))",
       // background : "linear-gradient(45deg, rgb(79, 0, 150), rgb(41, 171, 226))",
       flexGrow: 1,
-      width: 300
+      width: 330
     }
   }, /*#__PURE__*/_react.default.createElement(_TransactionPool.default, null)))))));
 }
@@ -67886,7 +67883,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5047" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8225" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

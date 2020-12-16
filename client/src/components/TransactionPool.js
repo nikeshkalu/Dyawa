@@ -20,7 +20,8 @@ class TransactionPool extends Component{
             .then(response => {
                 if(response.status == 200){
                     alert('Mine successful')
-                       history.push('/blocks')
+                    history.push('/')
+                    //    history.push('/blocks')
                        location.reload();
                 }
                 else{
@@ -50,8 +51,8 @@ class TransactionPool extends Component{
     render(){
         return(
             <div>
-                <Link to="/">Home</Link>
-                <hr/>
+                {/* <Link to="/">Home</Link> */}
+                {/* <hr/> */}
                 <div>
                     <h3>Transaction Pool</h3>
                     {
