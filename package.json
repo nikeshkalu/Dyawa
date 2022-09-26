@@ -33,7 +33,7 @@
         "history": "^5.0.0",
         "nodemon": "^2.0.4",
         "parcel-bundler": "^1.12.4",
-        "pubnub": "^4.28.4",
+        "pubnub": "^4.37.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-hover-animation": "^2.1.1",
